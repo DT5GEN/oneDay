@@ -8,7 +8,7 @@ interface NasaApi {
     @GET("planetary/apod")
 
     suspend fun pictureOfTheDay(
-       // @Query("api_key") key: String
+        @Query("api_key") key: String
     ): PictureOfTheDayResponse
 
 }

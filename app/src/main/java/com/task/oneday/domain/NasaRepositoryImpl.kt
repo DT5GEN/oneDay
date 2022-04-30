@@ -24,7 +24,7 @@ class NasaRepositoryImpl : NasaRepository {
         .create(NasaApi::class.java)
 
 
-    override suspend fun pictureOfTheDay(): PictureOfTheDayResponse = api.pictureOfTheDay()
+    override suspend fun pictureOfTheDay(): PictureOfTheDayResponse = api.pictureOfTheDay("Igvzb12oRMLhy1hTJpk2qzhZklXEpFoMFuo0gWVo")
 
 
 }
