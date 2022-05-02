@@ -29,6 +29,10 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentMainBinding.bind(view)
 
+        binding.textInput.setEndIconOnClickListener {
+            EditSomethingImportantBottomSheetDialogFragment().show(parentFragmentManager, "tag")
+        }
+
         viewLifecycleOwner.lifecycle.coroutineScope.launchWhenCreated {
             viewModel.loading.collect {
                 binding.progress.visibility = if (it) View.VISIBLE else View.GONE
