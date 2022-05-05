@@ -2,11 +2,13 @@ package com.task.oneday.ui
 
 import android.os.Bundle
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.coroutineScope
 import coil.load
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.task.oneday.R
 import com.task.oneday.databinding.FragmentMainBinding
 import com.task.oneday.domain.NasaRepositoryImpl
@@ -29,9 +31,34 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentMainBinding.bind(view)
 
+        binding.bottomAppbar.setOnMenuItemClickListener {
+            when(it.itemId){
+              else -> true
+            }
+        }
+
+
+
         binding.textInput.setEndIconOnClickListener {
             EditSomethingImportantBottomSheetDialogFragment().show(parentFragmentManager, "tag")
         }
+
+        binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->  }
+        
+
+//        val behavior: BottomSheetBehavior<LinearLayout> = BottomSheetBehavior.from(binding.bottomSheet)
+//        behavior.state = BottomSheetBehavior.STATE_COLLAPSED
+//
+//        behavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback(){
+//            override fun onStateChanged(bottomSheet: View, newState: Int) {
+//                Toast.makeText(requireContext(), "Change", Toast.LENGTH_SHORT).show()
+//            }
+//
+//            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+//                Toast.makeText(requireContext(), "Slide", Toast.LENGTH_SHORT)   .show()         }
+//
+//        })
+
 
         viewLifecycleOwner.lifecycle.coroutineScope.launchWhenCreated {
             viewModel.loading.collect {
