@@ -2,13 +2,11 @@ package com.task.oneday.ui
 
 import android.os.Bundle
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.coroutineScope
 import coil.load
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.task.oneday.R
 import com.task.oneday.databinding.FragmentMainBinding
 import com.task.oneday.domain.NasaRepositoryImpl
@@ -37,7 +35,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             }
         }
 
-
+//binding.explanation.text = "${PictureOfTheDayResponse.explanation}"
 
         binding.textInput.setEndIconOnClickListener {
             EditSomethingImportantBottomSheetDialogFragment().show(parentFragmentManager, "tag")
@@ -79,5 +77,16 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 }
             }
         }
+        viewLifecycleOwner.lifecycle.coroutineScope.launchWhenCreated {
+            viewModel.explanation.collect { expl ->
+                expl?.let {
+                    binding.explanation.setText(it)             //load(it)
+                }
+            }
+        }
+
+     //   binding.explanation.setText("${viewModel.explanation}" )
+
+
     }
 }

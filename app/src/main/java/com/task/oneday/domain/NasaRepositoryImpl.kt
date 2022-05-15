@@ -1,7 +1,7 @@
 package com.task.oneday.domain
 
 import com.task.oneday.api.NasaApi
-import com.task.oneday.api.PictureOfTheDayResponse
+import com.task.oneday.api.PictureOfTheDayResponseData
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -24,7 +24,7 @@ class NasaRepositoryImpl : NasaRepository {
         .create(NasaApi::class.java)
 
 
-    override suspend fun pictureOfTheDay(): PictureOfTheDayResponse = api.pictureOfTheDay("Igvzb12oRMLhy1hTJpk2qzhZklXEpFoMFuo0gWVo")
+    override suspend fun pictureOfTheDay(): PictureOfTheDayResponseData = api.getPictureOfTheDay("Igvzb12oRMLhy1hTJpk2qzhZklXEpFoMFuo0gWVo")
 
 
 }
