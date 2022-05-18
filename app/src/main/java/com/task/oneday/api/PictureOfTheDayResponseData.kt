@@ -3,7 +3,7 @@ package com.task.oneday.api
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-data class PictureOfTheDayResponse(
+data class PictureOfTheDayResponseData(
 
     @SerializedName("copyright")
     val copyright: String,

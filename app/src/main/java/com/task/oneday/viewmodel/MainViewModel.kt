@@ -1,4 +1,4 @@
-package com.task.oneday.ui
+package com.task.oneday.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -21,9 +21,12 @@ class MainViewModel(val repository: NasaRepository) : ViewModel() {
     private val _image: MutableStateFlow<String?> = MutableStateFlow(null)
     val image: Flow<String?> = _image
 
+
     private val _error: MutableSharedFlow<String> = MutableSharedFlow()
     val error: Flow<String> = _error
 
+    val _explanation: MutableSharedFlow<String> = MutableSharedFlow()
+    val explanation: Flow<String> = _explanation
 
     fun requestPictureOfTheDay() {
 
@@ -36,6 +39,22 @@ class MainViewModel(val repository: NasaRepository) : ViewModel() {
             try {
                 val url = repository.pictureOfTheDay().url
                 _image.emit(url)
+
+            } catch (exc: IOException) {
+                _error.emit("Error network")
+            }
+            _loading.emit(false)
+
+        }
+        viewModelScope.launch {
+
+            //  _loading.emit(true) следит ,чтобы корутина которая принимает не обогнала корутину, которая отправляет
+
+            try {
+                val exp = repository.pictureOfTheDay().explanation
+
+                _explanation.emit(exp)
+
             } catch (exc: IOException) {
                 _error.emit("Error network")
             }
@@ -65,6 +84,7 @@ class MainViewModel(val repository: NasaRepository) : ViewModel() {
 }
 
 class MainViewModelFactory(val repository: NasaRepository) : ViewModelProvider.Factory {
+
     override fun <T : ViewModel> create(modelClass: Class<T>): T = MainViewModel(repository) as T
 
 }
