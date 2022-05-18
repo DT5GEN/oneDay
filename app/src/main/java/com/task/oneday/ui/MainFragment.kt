@@ -34,6 +34,7 @@ class MainFragment : Fragment(layout.fragment_main) {
         super.onCreate(savedInstanceState)
 
         viewModel.requestPictureOfTheDay()
+
     }
 
     override fun onCreateView(
@@ -56,7 +57,8 @@ class MainFragment : Fragment(layout.fragment_main) {
         binding.textInput.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
                 data =
-                    Uri.parse("https://ru.wikipedia.org/w/index.php?search=${binding.wikiSearch.text.toString()}")
+                    Uri.parse(
+                        "https://en.wikipedia.org/w/index.php?search=${binding.wikiSearch.text.toString()}")
             })
         }
 
