@@ -9,7 +9,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class NasaRepositoryImpl : NasaRepository {
 
-
     private val api = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl("https://api.nasa.gov/")
@@ -24,7 +23,7 @@ class NasaRepositoryImpl : NasaRepository {
         .create(NasaApi::class.java)
 
 
-    override suspend fun pictureOfTheDay(): PictureOfTheDayResponseData = api.getPictureOfTheDay("Igvzb12oRMLhy1hTJpk2qzhZklXEpFoMFuo0gWVo")
-
+    override suspend fun pictureOfTheDay(): PictureOfTheDayResponseData =
+        api.getPictureOfTheDay("Igvzb12oRMLhy1hTJpk2qzhZklXEpFoMFuo0gWVo")
 
 }

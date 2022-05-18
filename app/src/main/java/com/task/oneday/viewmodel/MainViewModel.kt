@@ -1,4 +1,4 @@
-package com.task.oneday.ui
+package com.task.oneday.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -46,7 +46,7 @@ class MainViewModel(val repository: NasaRepository) : ViewModel() {
             _loading.emit(false)
 
         }
-  viewModelScope.launch {
+        viewModelScope.launch {
 
             //  _loading.emit(true) следит ,чтобы корутина которая принимает не обогнала корутину, которая отправляет
 
@@ -61,7 +61,6 @@ class MainViewModel(val repository: NasaRepository) : ViewModel() {
             _loading.emit(false)
 
         }
-
 
 
 //  Вариант запуска асинхронных корутинов
@@ -85,6 +84,7 @@ class MainViewModel(val repository: NasaRepository) : ViewModel() {
 }
 
 class MainViewModelFactory(val repository: NasaRepository) : ViewModelProvider.Factory {
+
     override fun <T : ViewModel> create(modelClass: Class<T>): T = MainViewModel(repository) as T
 
 }

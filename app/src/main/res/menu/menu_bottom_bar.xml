@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <item
-    android:id="@+id/action_one"
+    android:id="@+id/action_fav"
     android:icon="@drawable/ic_baseline_adb_24_red"
     android:title="one"
-    app:showAsAction="ifRoom"/>
+    app:showAsAction="never"/>
 <item
-    android:id="@+id/action_two"
+    android:id="@+id/action_settings"
     android:icon="@drawable/ic_baseline_battery_charging_full_24"
     android:title="two"
-    app:showAsAction="ifRoom"/>
+    app:showAsAction="never"/>
 
 </menu>

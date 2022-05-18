@@ -12,8 +12,23 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="THEME_KEY">SomeThemeKey</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first">first</string>
+    <string name="second">second</string>
+    <string name="three">three</string>
+    <string name="action">action</string>
+    <string name="filter">filter</string>
+    <string name="chooser_label">chooser_label</string>
+    <string name="mars">mars</string>
+    <string name="uranus">uranus</string>
+    <string name="mercury">mercury</string>
+    <string name="system_theme">systemTheme</string>
+    <string name="title">Заголовок</string>
+    <string name="wiki">Поиск в Wiki</string>
 </resources>

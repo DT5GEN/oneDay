@@ -15,39 +15,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chip_group"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:singleSelection="true">
-
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="first" />
-
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Entry"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="trecond" />
-
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="second" />
-
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="second" />
-
-
-            </com.google.android.material.chip.ChipGroup>
-
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/text_input"
@@ -57,27 +24,46 @@
                 android:layout_margin="16dp"
                 app:boxCornerRadiusTopEnd="20dp"
                 app:counterEnabled="true"
-                app:counterMaxLength="18"
-                app:endIconCheckable="true"
 
-                app:endIconMode="clear_text"
+                app:endIconCheckable="true"
+                app:endIconDrawable="@drawable/ic_baseline_adb_24_red"
+                app:endIconMode="custom"
                 app:helperText="символов">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/wiki_search"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Поиск в Wiki"
-                    android:maxLength="18" />
-                <!-- Запрос на поиск нужной страницы -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/ok"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="найти" />
+                    android:elevation="4dp"
+                    android:hint="@string/wiki"
+                    android:maxLength="18"
+                    android:maxLines="1"
+                    app:counterMaxLength="18" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:id="@+id/bottom_sheet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:behavior_hideable="true"
+                    app:behavior_peekHeight="50dp"
+                    app:layout_behavior="@string/bottom_sheet_behavior"
+                    tools:showIn="@layout/fragment_main">
+
+
+                </LinearLayout>
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/fragment_main_image"
@@ -101,26 +87,6 @@
                 android:fontFamily="@font/almendra"
                 android:text="" />
 
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <LinearLayout
-                    android:id="@+id/bottom_sheet"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:behavior_hideable="true"
-                    app:behavior_peekHeight="50dp"
-                    app:layout_behavior="@string/bottom_sheet_behavior"
-                    tools:showIn="@layout/fragment_main">
-
-
-                </LinearLayout>
-
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
 
         </LinearLayout>
 
@@ -137,7 +103,7 @@
 
 
     <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottom_appbar"
+        android:id="@+id/toggle_bottom_appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -146,18 +112,19 @@
         app:fabAnimationMode="slide"
         app:fabCradleVerticalOffset="0dp"
         app:hideOnScroll="true"
-        app:menu="@menu/menu_bottom_appbar"
         app:navigationIcon="@drawable/ic_baseline_toys_24"
 
 
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:backgroundTint="@color/grey"
         app:hideMotionSpec="@anim/nav_default_pop_exit_anim"
-        app:layout_anchor="@id/bottom_appbar"
+        app:layout_anchor="@id/toggle_bottom_appbar"
+
         app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
 
 
