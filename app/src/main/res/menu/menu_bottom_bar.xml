@@ -4,12 +4,12 @@
 <item
     android:id="@+id/action_fav"
     android:icon="@drawable/ic_baseline_adb_24_red"
-    android:title="one"
+    android:title="новая фича"
     app:showAsAction="never"/>
 <item
     android:id="@+id/action_settings"
     android:icon="@drawable/ic_baseline_battery_charging_full_24"
-    android:title="two"
+    android:title="выбор темы"
     app:showAsAction="never"/>
 
 </menu>

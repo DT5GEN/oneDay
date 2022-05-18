@@ -104,7 +104,7 @@ class MainFragment : Fragment(layout.fragment_main) {
                 .show()
 
             R.id.action_settings -> requireActivity().supportFragmentManager.beginTransaction()
-                .replace(androidx.navigation.ui.ktx.R.id.container, CustomiseFragment.newInstance())
+                .replace(R.id.fragment_container_first, CustomiseFragment.newInstance())
                 .addToBackStack("Customise")
                 .commit()
 

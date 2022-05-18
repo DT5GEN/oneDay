@@ -24,15 +24,15 @@ class MainActivity : AppCompatActivity() {
         }
         setContentView(R.layout.activity_main)
 
-        findViewById<Button>(R.id.btn_theme1)?.setOnClickListener {
-            savedTheme = R.style.Theme_OneDay_NoActionBar
-            recreate()
-        }
-
-        findViewById<Button>(R.id.btn_theme2)?.setOnClickListener {
-            savedTheme = R.style.Theme_OneDay_NoActionBarGreenApiL
-            recreate()
-        }
+//        findViewById<Button>(R.id.btn_theme1)?.setOnClickListener {
+//            savedTheme = R.style.Theme_OneDay_NoActionBar
+//            recreate()
+//        }
+//
+//        findViewById<Button>(R.id.btn_theme2)?.setOnClickListener {
+//            savedTheme = R.style.Theme_OneDay_NoActionBarGreenApiL
+//            recreate()
+//        }
 
 
     }

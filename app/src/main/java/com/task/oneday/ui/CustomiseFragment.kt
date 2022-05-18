@@ -47,37 +47,42 @@ class CustomiseFragment : Fragment(R.layout.fragment_customise) {
 
 
             when (group.checkedChipId) {
-                R.id.chipMars -> {
+                R.id.theme_grey -> {
                     setPrefs(getString(R.string.THEME_KEY), 1)
                     requireActivity().let { requireActivity().recreate() }
                 }
 
-                R.id.chipMercury -> {
+                R.id.theme_green -> {
                     setPrefs(getString(R.string.THEME_KEY), 2)
                     requireActivity().let { requireActivity().recreate() }
                 }
 
-                R.id.chipUranus -> {
+                R.id.theme_blue -> {
                     setPrefs(getString(R.string.THEME_KEY), 3)
                     requireActivity().let { requireActivity().recreate() }
                 }
 
-                R.id.chipDefault -> {
+                R.id.theme_red -> {
                     setPrefs(getString(R.string.THEME_KEY), 4)
                     requireActivity().let { requireActivity().recreate() }
                 }
 
+                R.id.theme_orange-> {
+                    setPrefs(getString(R.string.THEME_KEY), 5)
+                    requireActivity().let { requireActivity().recreate() }
+                }
+
                 else -> {
-                    Toast.makeText(context, "chosen sss", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "что-то не то", Toast.LENGTH_SHORT).show()
                 }
             }
 
         }
-
-        binding.chipForDelete.setOnCloseIconClickListener {
-
-            binding.chipForDelete.isChecked = false  //binding.chipForDelete.visibility = View.GONE
-        }
+//
+//        binding.chipForDelete.setOnCloseIconClickListener {
+//
+//            binding.chipForDelete.isChecked = false  //binding.chipForDelete.visibility = View.GONE
+//        }
     }
 
     companion object {
