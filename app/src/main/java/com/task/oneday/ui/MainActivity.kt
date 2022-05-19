@@ -1,45 +1,31 @@
 package com.task.oneday.ui
 
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.commit
 import com.task.oneday.R
 
 class MainActivity : AppCompatActivity() {
-
-    companion object {
-        const val KEY_THEME = "KEY_THEME"
-    }
-
-    private var savedTheme: Int? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        savedInstanceState?.getInt(KEY_THEME, -1)?.takeIf {
-            it != -1
-        }?.let {
-            setTheme(it)
+        val prefs = getPreferences(MODE_PRIVATE)
+        when (prefs.getInt(getString(R.string.THEME_KEY), -1)) {
+            1 -> setTheme(R.style.Theme_OneDay_NoActionBarGreenApiL)
+            2 -> setTheme(R.style.Theme_OneDay_NoActionBar)
+            3 -> setTheme(R.style.Theme_Blue)
+            4 -> setTheme(R.style.Theme_Red)
+            5 -> setTheme(R.style.Theme_OneDay_NoActionBarGreenApiL)
+            else -> setTheme(R.style.Theme_OneDay)
         }
         setContentView(R.layout.activity_main)
-
-//        findViewById<Button>(R.id.btn_theme1)?.setOnClickListener {
-//            savedTheme = R.style.Theme_OneDay_NoActionBar
-//            recreate()
-//        }
-//
-//        findViewById<Button>(R.id.btn_theme2)?.setOnClickListener {
-//            savedTheme = R.style.Theme_OneDay_NoActionBarGreenApiL
-//            recreate()
-//        }
-
-
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        savedTheme?.let { outState.putInt(KEY_THEME, it) }
-
+        savedInstanceState.let {
+            supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                replace(R.id.container_activity_main, MainFragment())
+            }
+        }
     }
 }
