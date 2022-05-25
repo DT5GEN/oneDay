@@ -1,30 +1,17 @@
 package com.task.oneday.ui
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.view.*
-import android.widget.Toast
-import androidx.core.content.ContextCompat
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.coroutineScope
-import coil.load
-import com.google.android.material.badge.BadgeDrawable
-import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.task.oneday.R
 import com.task.oneday.R.layout
 import com.task.oneday.databinding.FragmentMainBinding
-import com.task.oneday.domain.NasaRepositoryImpl
-import com.task.oneday.viewmodel.MainViewModel
-import com.task.oneday.viewmodel.MainViewModelFactory
 
 class MainFragment : Fragment(layout.fragment_main) {
 
-//    private val viewModel: MainViewModel by viewModels {
-//        MainViewModelFactory(NasaRepositoryImpl())
-//    }
 
     private var _binding: FragmentMainBinding? = null
     val binding: FragmentMainBinding
@@ -35,47 +22,13 @@ class MainFragment : Fragment(layout.fragment_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-     //   viewModel.requestPictureOfTheDay()
+
 
         if (savedInstanceState == null) {
             fragmentManager
                 ?.beginTransaction()
                 ?.replace(R.id.container, FragmentPOD())
                 ?.commit()
-        }
-
-
-
-        val bottomNavigationView: BottomNavigationView? = view?.findViewById(R.id.bottom_nav)
-
-        bottomNavigationView?.getOrCreateBadge(R.id.action_cosmos)
-
-        val badge = bottomNavigationView?.getBadge(R.id.action_wiki)
-        badge?.number = 300
-        badge?.maxCharacterCount = 3
-        badge?.badgeGravity = BadgeDrawable.TOP_END
-        //  badge?.clearNumber()  // удаляет номер из уведомления
-        //  bottomNavigationView.removeBadge(R.id.action_pager)  // удаляет значёк уведомления из меню
-
-        bottomNavigationView?.setOnItemReselectedListener {
-
-        }
-
-        bottomNavigationView?.setOnItemSelectedListener {
-
-            when (it.itemId) {
-                R.id.action_cosmos -> FragmentPOD()
-                R.id.action_wiki -> FragmentPOD() //TODO заменить на фрагмент поиска в Wikipedia
-                               else -> null
-
-            }?.also { fragment ->
-                fragmentManager
-                    ?.beginTransaction()
-                    ?.replace(R.id.container, fragment)
-                    ?.commit()
-            }
-
-            true
         }
 
 
@@ -94,111 +47,29 @@ class MainFragment : Fragment(layout.fragment_main) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentMainBinding.bind(view)
 
 
+        val bottomNavigationView: BottomNavigationView? = view?.findViewById(R.id.bottom_nav)
 
+        bottomNavigationView?.setOnItemSelectedListener {
 
-   //     setBottomAppBar(view)
+            when (it.itemId) {
+                R.id.action_cosmos -> FragmentPOD()
+                R.id.action_wiki -> FragmentWiki()
+                else -> null
 
+            }?.also { fragment ->
+                fragmentManager
+                    ?.beginTransaction()
+                    ?.replace(R.id.container, fragment)
+                    ?.commit()
+            }
 
-//        binding.textInput.setEndIconOnClickListener {
-//            startActivity(Intent(Intent.ACTION_VIEW).apply {
-//                data =
-//                    Uri.parse(
-//                        "https://en.wikipedia.org/w/index.php?search=${binding.wikiSearch.text.toString()}")
-//            })
-//        }
-//
-//
-//        viewLifecycleOwner.lifecycle.coroutineScope.launchWhenCreated {
-//            viewModel.loading.collect {
-//                binding.progress.visibility = if (it) View.VISIBLE else View.GONE
-//            }
-//        }
-//
-//        viewLifecycleOwner.lifecycle.coroutineScope.launchWhenCreated {
-//            viewModel.error.collect {
-//                Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
-//            }
-//        }
-//
-//        viewLifecycleOwner.lifecycle.coroutineScope.launchWhenCreated {
-//            viewModel.image.collect { url ->
-//                url?.let {
-//                    binding.fragmentMainImage.load(it)
-//                }
-//            }
-//        }
-//        viewLifecycleOwner.lifecycle.coroutineScope.launchWhenCreated {
-//            viewModel.explanation.collect { expl ->
-//                expl.let {
-//                    binding.explanation.setText(it)             //load(it)
-//                }
-//            }
-//        }
-
+            true
+        }
 
 
     }
 
-//
-//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-//        super.onCreateOptionsMenu(menu, inflater)
-//        inflater.inflate(R.menu.menu_bottom_bar, menu)
-//    }
-//
-//
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when (item.itemId) {
-//            R.id.action_fav -> Toast.makeText(context, "Favourite selected", Toast.LENGTH_LONG)
-//                .show()
-//
-//            R.id.action_settings -> requireActivity().supportFragmentManager.beginTransaction()
-//                .replace(R.id.fragment_container_first, CustomiseFragment.newInstance())
-//                .addToBackStack("Customise")
-//                .commit()
-//
-//            android.R.id.home -> NavigationDrawerFragment().show(
-//                requireActivity().supportFragmentManager,
-//                "goHome"
-//            )
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
-//
-//    private var isMain = true
 
-//    private fun setBottomAppBar(view: View) {
-//        val context = activity as MainActivity
-//        context.setSupportActionBar(binding.toggleBottomAppbar)
-//        setHasOptionsMenu(true)
-//
-//        binding.fab.setOnClickListener {
-//            if (isMain) {
-//                isMain = false
-//                binding.toggleBottomAppbar.navigationIcon = null
-//                binding.toggleBottomAppbar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-//                binding.fab.setImageDrawable(
-//                    ContextCompat.getDrawable(
-//                        context,
-//                        R.drawable.ic_back_fab
-//                    )
-//                )
-//                binding.toggleBottomAppbar.replaceMenu(R.menu.menu_bottom_bar_other_screen)
-//            } else {
-//                isMain = true
-//                binding.toggleBottomAppbar.navigationIcon =
-//                    ContextCompat.getDrawable(context, R.drawable.ic_hamburger_menu_bottom_bar)
-//                binding.toggleBottomAppbar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-//                binding.fab.setImageDrawable(
-//                    ContextCompat.getDrawable(
-//                        context,
-//                        R.drawable.ic_plus_fab
-//                    )
-//                )
-//                binding.toggleBottomAppbar.replaceMenu(R.menu.menu_bottom_bar)
-//            }
-//        }
-//    }
 }
