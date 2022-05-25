@@ -81,7 +81,11 @@ class CustomiseFragment : Fragment(R.layout.fragment_customise) {
                     recreateFragment()
                 }
 
-                R.id.chip_red -> {
+                R.id.chip_red -> { if (true){
+                   var k = 25
+                } else {
+                    var k = 32
+                }
                     setPrefs(getString(R.string.THEME_KEY), 4)
                     parentActivity.recreate()
                  //   requireActivity().let { requireActivity().recreate() }
@@ -116,6 +120,8 @@ class CustomiseFragment : Fragment(R.layout.fragment_customise) {
     private fun getCurrentTheme() : Int{
         return requireActivity().getPreferences(Context.MODE_PRIVATE).getInt(getString(R.string.THEME_KEY), -1)
     }
+
+   // var CurThem = getCurrentTheme()
 
     private fun getStyleName(currentTheme: Int): Int {
         return when (currentTheme) {

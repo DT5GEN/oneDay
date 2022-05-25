@@ -11,6 +11,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+
         val prefs = getPreferences(MODE_PRIVATE)
         when (prefs.getInt(getString(R.string.THEME_KEY), -1)) {
             1 -> setTheme(R.style.Theme_OneDay_NoActionBarGreenApiL)
