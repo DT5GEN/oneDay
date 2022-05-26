@@ -36,6 +36,7 @@
         <entry key="..\:/Users/marin/StudioProjects/oneDay/app/src/main/res/layout/fragment_search.xml" value="0.14175724637681159" />
         <entry key="..\:/Users/marin/StudioProjects/oneDay/app/src/main/res/layout/fragment_second.xml" value="0.3541666666666667" />
         <entry key="..\:/Users/marin/StudioProjects/oneDay/app/src/main/res/layout/fragment_wiki.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/marin/StudioProjects/oneDay/app/src/main/res/layout/fragment_wiki_old.xml" value="0.3009833262077811" />
         <entry key="..\:/Users/marin/StudioProjects/oneDay/app/src/main/res/layout/layout_bottom_sheet.xml" value="0.19746376811594202" />
         <entry key="..\:/Users/marin/StudioProjects/oneDay/app/src/main/res/layout/navigation_drawer_layout.xml" value="0.19202898550724637" />
         <entry key="..\:/Users/marin/StudioProjects/oneDay/app/src/main/res/menu/activity_main_drawer.xml" value="0.22" />
@@ -46,6 +47,7 @@
         <entry key="..\:/Users/marin/StudioProjects/oneDay/app/src/main/res/menu/menu_bottom_bar_other_screen.xml" value="0.35104166666666664" />
         <entry key="..\:/Users/marin/StudioProjects/oneDay/app/src/main/res/menu/menu_navigation.xml" value="0.25" />
         <entry key="..\:/Users/marin/StudioProjects/oneDay/app/src/main/res/menu/navigation_drawer.xml" value="0.20277777777777778" />
+        <entry key="..\:/Users/marin/StudioProjects/oneDay/app/src/main/res/xml/fragment_motion_scene.xml" value="0.30012825994014536" />
       </map>
     </option>
   </component>

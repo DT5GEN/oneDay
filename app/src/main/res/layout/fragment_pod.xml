@@ -22,6 +22,7 @@
 
 
             <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_margin="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -36,6 +37,15 @@
                     app:layout_behavior="@string/bottom_sheet_behavior"
                     tools:showIn="@layout/fragment_main">
 
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/nasa_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="NASA Project"
+                        android:textSize="44sp"
+                        android:fontFamily="@font/almendra"
+
+                        />
 
                 </LinearLayout>
 

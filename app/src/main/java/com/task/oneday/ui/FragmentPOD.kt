@@ -1,7 +1,9 @@
 package com.task.oneday.ui
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.*
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -50,6 +52,12 @@ class FragmentPOD : Fragment(layout.fragment_pod) {
         val binding = FragmentPodBinding.bind(view)
 
         setBottomAppBar(view)
+        val someText : TextView? = view?.findViewById(R.id.nasa_header)
+
+        ObjectAnimator.ofFloat(someText, "translationX", 200f ).apply {
+            duration = 700L
+            start()
+        }
 
 
         viewLifecycleOwner.lifecycle.coroutineScope.launchWhenCreated {
