@@ -31,4 +31,13 @@
     <string name="system_theme">systemTheme</string>
     <string name="title">Заголовок</string>
     <string name="wiki">Поиск в Wiki</string>
+    <string name="nasa_project">NASA Project</string>
+    <string name="search_wiki">Поиск в Wikipedia</string>
+    <string name="cosmos">cosmos</string>
+    <string name="wiki_menu">wiki</string>
+    <string name="new_func">новая фича</string>
+    <string name="theme_change">выбор темы</string>
+    <string name="search">search</string>
+    <string name="first_screen">На первый экран</string>
+    <string name="second_screen">На второй экран</string>
 </resources>

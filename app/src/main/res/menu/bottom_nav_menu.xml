@@ -4,13 +4,13 @@
     <item
         android:id="@+id/action_cosmos"
         android:icon="@drawable/ic_baseline_sports_volleyball_24"
-        android:title="cosmos" />
+        android:title="@string/cosmos" />
 
 
     <item
         android:id="@+id/action_wiki"
         android:icon="@drawable/ic_baseline_search_24"
-        android:title="wiki" />
+        android:title="@string/wiki_menu" />
 
 
 

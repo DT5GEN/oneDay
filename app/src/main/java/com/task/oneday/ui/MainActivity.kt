@@ -20,10 +20,11 @@ class MainActivity : AppCompatActivity() {
             3 -> setTheme(R.style.Theme_Blue)
             4 -> setTheme(R.style.Theme_Red)
             5 -> setTheme(R.style.Theme_OneDay_NoActionBarGreenApiL)
-            else -> setTheme(R.style.Theme_OneDay)
+            else -> setTheme(R.style.Theme_OneDay_NoActionBar)
         }
         setContentView(R.layout.activity_main)
         savedInstanceState.let {
+            supportFragmentManager.popBackStack()
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
                 replace(R.id.container_activity_main, MainFragment())

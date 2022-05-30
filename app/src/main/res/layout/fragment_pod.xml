@@ -41,7 +41,7 @@
                         android:id="@+id/nasa_header"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="NASA Project"
+                        android:text="@string/nasa_project"
                         android:textSize="44sp"
                         android:fontFamily="@font/almendra"
 

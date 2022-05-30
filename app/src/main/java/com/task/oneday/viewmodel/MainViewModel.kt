@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.task.oneday.domain.NasaRepository
-import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -34,7 +33,6 @@ class MainViewModel(val repository: NasaRepository) : ViewModel() {
 
         viewModelScope.launch {
 
-            //  _loading.emit(true) следит ,чтобы корутина которая принимает не обогнала корутину, которая отправляет
 
             try {
                 val url = repository.pictureOfTheDay().url
@@ -48,7 +46,6 @@ class MainViewModel(val repository: NasaRepository) : ViewModel() {
         }
         viewModelScope.launch {
 
-            //  _loading.emit(true) следит ,чтобы корутина которая принимает не обогнала корутину, которая отправляет
 
             try {
                 val exp = repository.pictureOfTheDay().explanation
@@ -61,22 +58,6 @@ class MainViewModel(val repository: NasaRepository) : ViewModel() {
             _loading.emit(false)
 
         }
-
-
-//  Вариант запуска асинхронных корутинов
-//        viewModelScope.launch {
-//            val deffered = viewModelScope.async {
-//                repository.pictureOfTheDay()
-//            }
-//
-//            val  deferred2 = viewModelScope.async {
-//                repository.pictureOfTheDay()
-//            }
-//
-//            deffered.await()
-//            deferred2.await()
-//        }
-
 
     }
 

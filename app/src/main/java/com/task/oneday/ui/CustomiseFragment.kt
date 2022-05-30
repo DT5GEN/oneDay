@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.task.oneday.R
 import com.task.oneday.databinding.FragmentCustomiseBinding
-import com.google.android.material.chip.ChipGroup
 
 class CustomiseFragment : Fragment(R.layout.fragment_customise) {
 
@@ -20,12 +19,8 @@ class CustomiseFragment : Fragment(R.layout.fragment_customise) {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-//        parentActivity = (context as MainActivity) // 1 способ получить родительскую активити
-//
-//        parentActivity = activity as MainActivity // воторой способ
         parentActivity = requireActivity() as MainActivity
     }
-
 
 
     override fun onCreateView(
@@ -37,6 +32,7 @@ class CustomiseFragment : Fragment(R.layout.fragment_customise) {
         _binding = FragmentCustomiseBinding.inflate(localInflater)
         return binding.root
     }
+
     private var _binding: FragmentCustomiseBinding? = null
     private val binding: FragmentCustomiseBinding
         get() {
@@ -57,7 +53,6 @@ class CustomiseFragment : Fragment(R.layout.fragment_customise) {
             apply()
         }
     }
-
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -81,14 +76,15 @@ class CustomiseFragment : Fragment(R.layout.fragment_customise) {
                     recreateFragment()
                 }
 
-                R.id.chip_red -> { if (true){
-                   var k = 25
-                } else {
-                    var k = 32
-                }
+                R.id.chip_red -> {
+                    if (true) {
+                        var k = 25
+                    } else {
+                        var k = 32
+                    }
                     setPrefs(getString(R.string.THEME_KEY), 4)
                     parentActivity.recreate()
-                 //   requireActivity().let { requireActivity().recreate() }
+
                 }
 
                 R.id.chip_orange -> {
@@ -107,7 +103,6 @@ class CustomiseFragment : Fragment(R.layout.fragment_customise) {
     }
 
 
-
     private fun recreateFragment() {
         requireActivity().let {
             parentActivity.supportFragmentManager.commit {
@@ -117,11 +112,11 @@ class CustomiseFragment : Fragment(R.layout.fragment_customise) {
         }
     }
 
-    private fun getCurrentTheme() : Int{
-        return requireActivity().getPreferences(Context.MODE_PRIVATE).getInt(getString(R.string.THEME_KEY), -1)
+    private fun getCurrentTheme(): Int {
+        return requireActivity().getPreferences(Context.MODE_PRIVATE)
+            .getInt(getString(R.string.THEME_KEY), -1)
     }
 
-   // var CurThem = getCurrentTheme()
 
     private fun getStyleName(currentTheme: Int): Int {
         return when (currentTheme) {
