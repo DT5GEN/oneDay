@@ -3,14 +3,92 @@
     <style name="Theme.OneDay" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
+        <item name="windowNoTitle">true</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/grey_alpha</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor"
+            tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="windowActionBar">false</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.OneDay.NoActionBar">
+        <item name="windowActionBar">false</item>
+
+        <item name="windowNoTitle">true</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/grey</item>
+        <item name="colorPrimaryVariant">@color/grey_alpha</item>
+        <item name="colorOnPrimary">#80FFFFFF</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/purple_200</item>
+        <item name="colorSecondaryVariant">@color/material_dynamic_neutral_variant30</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor"
+            tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.OneDay.NoActionBarGreenApiL" >
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@android:color/holo_green_dark</item>
+
+        <item name="colorOnPrimary">#801AB313</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/purple_200</item>
+        <item name="colorSecondaryVariant">#28681C</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@android:color/holo_green_light</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+
+    <style name="Theme.Blue" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/uranusPrimaryColor</item>
+        <item name="colorPrimaryVariant">@color/uranusPrimaryDarkColor</item>
+        <item name="colorOnPrimary">@color/uranusPrimaryTextColor</item>
+        <item name="colorSecondary">@color/uranusSecondaryColor</item>
+        <item name="colorSecondaryVariant">@color/uranusSecondaryDarkColor</item>
+        <item name="colorOnSecondary">@color/uranusSecondaryTextColor</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="colorSurface">@color/uranusPrimaryColor</item>
+    </style>
+
+    <style name="Theme.Red" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/mercuryPrimaryColor</item>
+        <item name="colorPrimaryVariant">@color/mercuryPrimaryDarkColor</item>
+        <item name="colorOnPrimary">@color/mercuryPrimaryTextColor</item>
+        <item name="colorSecondary">@color/mercurySecondaryColor</item>
+        <item name="colorSecondaryVariant">@color/mercurySecondaryDarkColor</item>
+        <item name="colorOnSecondary">@color/mercurySecondaryTextColor</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="colorSurface">@color/mercuryPrimaryColor</item>
+    </style>
+
+    <style name="Theme.BottomSheet.POTD.Header" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:fontFamily">@font/unifrakturmaguntia</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Theme.BottomSheet.POTD.Text" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:fontFamily">@font/almendra</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
+    <style name="Theme.OneDay.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.OneDay.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
